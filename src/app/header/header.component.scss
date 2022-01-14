@@ -6,4 +6,22 @@ header {
             color: darken($color: $white, $amount: 10);
         }
     }
+    .avtr {
+        @include media-breakpoint-down(sm) {
+            padding-top: 40px;
+        }
+        .user-avatar {
+            position: absolute;
+            top: -50px;
+            height: 270px;
+            width: 270px;
+            @include media-breakpoint-down(sm) {
+                top: 0px;
+            }
+            img {
+                width: 250px;
+                height: 250px;
+            }
+        }
+    }
 }
