@@ -9,6 +9,7 @@ header {
     .avtr {
         @include media-breakpoint-down(sm) {
             padding-top: 40px;
+            padding-left: 20px;
         }
         .user-avatar {
             position: absolute;
@@ -16,12 +17,15 @@ header {
             height: 270px;
             width: 270px;
             @include media-breakpoint-down(sm) {
-                top: 0px;
+                top: 20px;
             }
             img {
                 width: 250px;
                 height: 250px;
             }
         }
+    }
+    @include media-breakpoint-down(sm) {
+        margin-bottom: 250px;
     }
 }
