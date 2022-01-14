@@ -1,15 +1,35 @@
-<header class="bg-primary py-xl-5 py-4 px-lg-5 w-100">
+<header class="bg-primary pt-xl-5 py-4 px-lg-5 w-100">
     <div class="container-fluid">
         <div class="row">
-            <div class="col-md-5">
-                <div class="user-infor text-white">
+            <div class="col-md-5 d-flex order-3 order-md-1 mt-5 mt-md-0">
+                <div class="user-infor text-white my-auto">
                     <h1 class="text-white fw-bold">James Muriithi</h1>
                     <h6 class="location">Nairobi, Kenya</h6>
                     <h6 class="join-date">Joined On: 23-12-2022</h6>
                 </div>
             </div>
-            <div class="col-md-2"></div>
-            <div class="col-md-5"></div>
+            <div class="col-md-2 order-2 d-none d-md-block">
+                <div class="github-logo">
+                    <img src="assets/images/github-logo.png" alt="Github" class="img-fluid">
+                </div>
+            </div>
+            <div class="col-md-5 order-1 order-md-3 mb-5 mb-md-0">
+                <div class="site-logo text-md-end">
+                    <a routerLink="/" class="navbar-brand">
+                        <img src="assets/images/logo.png" alt="Github Search" class="img-fluid">
+                    </a>
+                </div>
+            </div>
+        </div>
+        <div class="row mt-4 followers-stats text-white">
+            <div class="col-md-6 offset-md-6 text-end">
+                <span class="followers px-3">
+                    60 followers
+                </span>
+                <span class="followers px-3">
+                    60 following
+                </span>
+            </div>
         </div>
     </div>
 </header>
