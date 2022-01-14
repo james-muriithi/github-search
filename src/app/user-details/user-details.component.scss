@@ -1,0 +1,10 @@
+@import "variables";
+.user-details {
+    font-size: calc($spacer * 1.2);
+    @include media-breakpoint-up(sm) {
+        padding-left: 300px;
+    }
+    @include media-breakpoint-up(lg) {
+        padding-left: 330px;
+    }
+}
