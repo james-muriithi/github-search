@@ -1,0 +1,9 @@
+@import "variables";
+header {
+    .user-infor {
+        .join-date,
+        .location {
+            color: darken($color: $white, $amount: 10);
+        }
+    }
+}
