@@ -9,6 +9,7 @@ import { UserDetailsComponent } from './user-details/user-details.component';
 import { SearchBarComponent } from './search-bar/search-bar.component';
 import { RepositoriesSectionComponent } from './repositories-section/repositories-section.component';
 import { RepositoryCardComponent } from './repository-card/repository-card.component';
+import { FooterComponent } from './footer/footer.component';
 
 @NgModule({
   declarations: [
@@ -18,7 +19,8 @@ import { RepositoryCardComponent } from './repository-card/repository-card.compo
     UserDetailsComponent,
     SearchBarComponent,
     RepositoriesSectionComponent,
-    RepositoryCardComponent
+    RepositoryCardComponent,
+    FooterComponent
   ],
   imports: [
     BrowserModule,
