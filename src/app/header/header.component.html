@@ -8,33 +8,35 @@
                     <h6 class="join-date">Joined On: 23-12-2022</h6>
                 </div>
             </div>
-            <div class="col-md-2 order-2 d-none d-md-block">
-                <div class="github-logo">
-                    <img src="assets/images/github-logo.png" alt="Github" class="img-fluid">
+            <div class="col-md-2 order-2 ">
+                <div class="github-logo d-none d-md-block">
+                    <img src="assets/images/github-logo.png" alt="Github" class="img-fluid" />
                 </div>
+                <app-search-bar class="d-block d-md-none"></app-search-bar>
             </div>
-            <div class="col-md-5 order-1 order-md-3 mb-5 mb-md-0">
+            <div class="col-md-5 order-1 order-md-3 mb-5 mb-md-0 d-flex d-md-block">
                 <div class="site-logo text-md-end">
                     <a routerLink="/" class="navbar-brand">
-                        <img src="assets/images/logo.png" alt="Github Search" class="img-fluid">
+                        <img src="assets/images/logo.png" alt="Github Search" class="img-fluid" />
+                    </a>
+                </div>
+                <div class="d-block d-none">
+                    <a routerLink="/" class="search-icon h-100 d-flex btn">
+                        <i class="fa fa-search fs-5 my-auto text-white"></i>
                     </a>
                 </div>
             </div>
         </div>
         <div class="row mt-4 followers-stats text-white">
             <div class="col-md-6 offset-md-6 text-sm-end">
-                <span class="followers px-sm-3">
-                    60 followers
-                </span>
-                <span class="followers px-3">
-                    60 following
-                </span>
+                <span class="followers px-sm-3"> 60 followers </span>
+                <span class="followers px-3"> 60 following </span>
             </div>
         </div>
     </div>
-    <div class="position-relative avtr">
+    <div class="position-relative avtr w-100">
         <div class="user-avatar bg-primary rounded-circle d-flex">
-            <img src="https://avatars.githubusercontent.com/u/26818458?v=4" alt="" class="img-fluid rounded-circle m-auto">
+            <img src="https://avatars.githubusercontent.com/u/26818458?v=4" alt="" class="img-fluid rounded-circle m-auto" />
         </div>
     </div>
 </header>
