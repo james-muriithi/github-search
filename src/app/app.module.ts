@@ -8,6 +8,7 @@ import { HeaderComponent } from './header/header.component';
 import { UserDetailsComponent } from './user-details/user-details.component';
 import { SearchBarComponent } from './search-bar/search-bar.component';
 import { RepositoriesSectionComponent } from './repositories-section/repositories-section.component';
+import { RepositoryCardComponent } from './repository-card/repository-card.component';
 
 @NgModule({
   declarations: [
@@ -16,7 +17,8 @@ import { RepositoriesSectionComponent } from './repositories-section/repositorie
     HeaderComponent,
     UserDetailsComponent,
     SearchBarComponent,
-    RepositoriesSectionComponent
+    RepositoriesSectionComponent,
+    RepositoryCardComponent
   ],
   imports: [
     BrowserModule,

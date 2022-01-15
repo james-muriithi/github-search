@@ -1,0 +1,4 @@
+@import "variables";
+.btn-outline-primary {
+    @include button-outline-variant(map-get($theme-colors, primary), $white);
+}

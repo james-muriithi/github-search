@@ -1,5 +1,17 @@
 <section id="user-repos" class="py-5">
     <div class="container-fluid">
         <h2 class="section-title text-center text-secondary fw-bold">{{title}}</h2>
+        <div class="repos-container mt-5">
+            <div class="row justify-content-center">
+                <div class="col-md-5 col-lg-4 col-sm-6 mb-4" *ngFor="let repository of repositories">
+                    <app-repository-card></app-repository-card>
+                </div>
+            </div>
+            <div class="text-center mt-4">
+                <button class="btn btn-outline-primary load-more px-4 py-2">
+                    Load More
+                </button>
+            </div>
+        </div>
     </div>
 </section>
