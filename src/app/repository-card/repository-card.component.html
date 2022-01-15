@@ -1,18 +1,21 @@
 <div class="p-4 pb-5 repo-card bg-white shadow">
     <div class="repo-name fw-medium text-secondary fs-4 py-3">
-        Github Search App
+        {{repository?.name}}
     </div>
     <div class="repo-description">
         <p class="">
-            Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.
+            {{repository?.description || 'Repositry has no description.'}}
         </p>
         <div class="row">
             <div class="col-3">
-                <i class="fa fa-star text-primary"></i> <span class="count ps-2">3</span>
+                <i class="fa fa-star text-primary"></i>
+                <span class="count ps-2">
+                    {{repository.stargazers_count}}
+                </span>
             </div>
             <div class="col-9">
                 <div class="text-end">
-                    <small class="mt-4 fst-italic"> created on: 22-04-2021 </small>
+                    <small class="mt-4 fst-italic"> created on: {{repository.created_at}} </small>
                 </div>
             </div>
         </div>

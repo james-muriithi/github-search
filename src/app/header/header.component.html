@@ -3,9 +3,9 @@
         <div class="row">
             <div class="col-md-5 d-flex order-3 order-md-1 mt-5 mt-md-0">
                 <div class="user-infor text-white my-auto">
-                    <h1 class="text-white fw-bold">James Muriithi</h1>
-                    <h6 class="location">Nairobi, Kenya</h6>
-                    <h6 class="join-date">Joined On: 23-12-2022</h6>
+                    <h1 class="text-white fw-bold">{{userDetails?.name}}</h1>
+                    <h6 class="location">{{userDetails?.location}}</h6>
+                    <h6 class="join-date">Joined On: {{userDetails?.created_at | date}}</h6>
                 </div>
             </div>
             <div class="col-md-2 order-2 ">
@@ -29,14 +29,14 @@
         </div>
         <div class="row mt-4 followers-stats text-white">
             <div class="col-md-6 offset-md-6 text-sm-end">
-                <span class="followers px-sm-3"> 60 followers </span>
-                <span class="followers px-3"> 60 following </span>
+                <span class="followers px-sm-3"> {{userDetails?.followers}} followers </span>
+                <span class="followers px-3"> {{userDetails?.following}} following </span>
             </div>
         </div>
     </div>
     <div class="position-relative avtr w-100">
         <div class="user-avatar bg-primary rounded-circle d-flex">
-            <img src="https://avatars.githubusercontent.com/u/26818458?v=4" alt="" class="img-fluid rounded-circle m-auto" />
+            <img [src]="userDetails?.avatar_url" [alt]="userDetails?.name || ''" class="img-fluid rounded-circle m-auto" />
         </div>
     </div>
 </header>

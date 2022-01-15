@@ -9,8 +9,6 @@ import { Repository } from '../shared/repository.model';
   providedIn: 'root',
 })
 export class GithubDataService {
-  private username: String = 'james-muriithi';
-
   headers = {
     Authorization: environment.apiKey,
   };
@@ -25,23 +23,21 @@ export class GithubDataService {
       .pipe(retry(2), catchError(this.handleError));
   }
 
-  getUserRepositories(
-    username: String = this.username
-  ): Observable<Repository> {
+  getUserRepositories(username: String): Observable<Repository[]> {
     const params = {
       sort: 'created',
       direction: 'desc',
     };
 
     return this.http
-      .get<Repository>(this.getUserRepositoriesEndpoint(username), {
+      .get<Repository[]>(this.getUserRepositoriesEndpoint(username), {
         params,
         headers: this.headers,
       })
       .pipe(retry(2), catchError(this.handleError));
   }
 
-  private getUserDetailsEndpoint(username: String = this.username) {
+  private getUserDetailsEndpoint(username: String) {
     return `${environment.apiUrl}${username}`;
   }
 

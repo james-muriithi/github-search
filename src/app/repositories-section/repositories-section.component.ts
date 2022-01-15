@@ -1,4 +1,5 @@
 import { Component, OnInit, Input } from '@angular/core';
+import { Repository } from '../shared/repository.model';
 
 @Component({
   selector: 'app-repositories-section',
@@ -7,7 +8,7 @@ import { Component, OnInit, Input } from '@angular/core';
 })
 export class RepositoriesSectionComponent implements OnInit {
   @Input() title: String = 'My Repositories';
-  repositories: Number[] = new Array(6).fill(1);
+  @Input() userRepositories!: Repository[];
 
   constructor() {}
 

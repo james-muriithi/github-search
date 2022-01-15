@@ -5,6 +5,8 @@ export class User {
     public followers: String,
     public following: String,
     public public_repos: String,
-    public bio: String
+    public bio: String,
+    public location: String,
+    public created_at: Date
   ) {}
 }

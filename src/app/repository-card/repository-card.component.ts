@@ -1,4 +1,5 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, Input, OnInit } from '@angular/core';
+import { Repository } from '../shared/repository.model';
 
 @Component({
   selector: 'app-repository-card',
@@ -6,6 +7,8 @@ import { Component, OnInit } from '@angular/core';
   styleUrls: ['./repository-card.component.scss']
 })
 export class RepositoryCardComponent implements OnInit {
+  @Input() repository!:Repository;
+  
   constructor() { }
 
   ngOnInit(): void {

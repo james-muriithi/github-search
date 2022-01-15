@@ -1,4 +1,4 @@
-<app-header></app-header>
-<app-user-details></app-user-details>
+<app-header [userDetails]="userDetails"></app-header>
+<app-user-details [userDetails]="userDetails"></app-user-details>
 <app-search-bar class="d-none d-md-block"></app-search-bar>
-<app-repositories-section></app-repositories-section>
+<app-repositories-section [userRepositories]="userRepositories"></app-repositories-section>

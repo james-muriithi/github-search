@@ -6,6 +6,7 @@ export class Repository {
     public description: String,
     public url: String,
     public topic: [],
+    public created_at: Date,
     public language?: String
   ) {}
 }

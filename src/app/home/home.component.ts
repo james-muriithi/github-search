@@ -1,5 +1,12 @@
 import { Component, OnInit } from '@angular/core';
+import {
+  ActivatedRoute,
+  NavigationEnd,
+  Router,
+} from '@angular/router';
 import { GithubDataService } from '../services/github-data.service';
+import { Repository } from '../shared/repository.model';
+import { User } from '../shared/user.model';
 
 @Component({
   selector: 'app-home',
@@ -7,16 +14,46 @@ import { GithubDataService } from '../services/github-data.service';
   styleUrls: ['./home.component.scss'],
 })
 export class HomeComponent implements OnInit {
-  constructor(private githubDataService: GithubDataService) {}
+  userDetails!: User;
+
+  userRepositories!: Repository[];
+
+  username: String = 'james-muriithi';
+
+  constructor(
+    private githubDataService: GithubDataService,
+    private route: ActivatedRoute,
+    private router: Router
+  ) {
+    this.router.events.subscribe((event) => {
+      if (event instanceof NavigationEnd) {
+        this.fetchUserDetails();
+      }
+    });
+  }
 
   ngOnInit(): void {
-    // this.githubDataService
-    //   .getUserDetails('jame')
-    //   .subscribe((details) => {
-    //     console.log(details);
-    //   });
-    this.githubDataService.getUserRepositories('james-muriithi').subscribe((details) => {
-      console.log(details);
+    this.fetchUserDetails();
+  }
+
+  fetchUserDetails() {
+    this.route.params.subscribe((params) => {
+      if (params['username']) {
+        this.username = params['username'];
+      }
     });
+
+    this.githubDataService
+      .getUserDetails(this.username)
+      .subscribe((details: User) => {
+        this.userDetails = details;
+      });
+
+
+    this.githubDataService
+      .getUserRepositories(this.username)
+      .subscribe((repos) => {
+        this.userRepositories = repos;
+      });
   }
 }

@@ -22,7 +22,7 @@ export class SearchBarComponent implements OnInit {
 
   search(){
     if (!this.username) return;
-    this.router.navigate(['user', this.username], { relativeTo: this.route });
+    this.router.navigate(['user', this.username]);
   }
 
 }
