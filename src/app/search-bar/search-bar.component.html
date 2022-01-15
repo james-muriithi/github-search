@@ -1,7 +1,7 @@
 <div class="py-2 search">
     <span class="position-relative d-flex">
-        <input type="text" class="form-control ms-auto" placeholder="Search here...">
-        <button class="search-icon h-100 d-flex btn">
+        <input type="text" class="form-control ms-auto" [(ngModel)]="username" (keyup.enter)="search()" placeholder="Search here...">
+        <button class="search-icon h-100 d-flex btn" (click)="search()" >
             <i class="fa fa-search fs-5 my-auto"></i>
         </button>
     </span>
