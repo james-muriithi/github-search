@@ -14,6 +14,7 @@ import { FormsModule } from '@angular/forms';
 import { HttpClientModule } from '@angular/common/http';
 import { TimeAgoPipe } from './time-ago.pipe';
 import { PopularDirective } from './directives/popular.directive';
+import { NgProgressModule } from 'ngx-progressbar';
 
 @NgModule({
   declarations: [
@@ -26,15 +27,16 @@ import { PopularDirective } from './directives/popular.directive';
     RepositoryCardComponent,
     FooterComponent,
     TimeAgoPipe,
-    PopularDirective
+    PopularDirective,
   ],
   imports: [
     BrowserModule,
     AppRoutingModule,
     FormsModule,
-    HttpClientModule
+    HttpClientModule,
+    NgProgressModule,
   ],
   providers: [],
-  bootstrap: [AppComponent]
+  bootstrap: [AppComponent],
 })
-export class AppModule { }
+export class AppModule {}

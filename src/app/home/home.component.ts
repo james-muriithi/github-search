@@ -1,5 +1,6 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, ViewChild } from '@angular/core';
 import { ActivatedRoute, NavigationEnd, Router } from '@angular/router';
+import { NgProgressComponent } from 'ngx-progressbar';
 import { GithubDataService } from '../services/github-data.service';
 import { Pagination } from '../shared/pagination';
 import { Repository } from '../shared/repository.model';
@@ -21,14 +22,27 @@ export class HomeComponent implements OnInit {
     perPageRepos: 30,
   };
 
-  username: String = 'james-muriithi';
+  username: String = 'james-muriithi'
+
+  @ViewChild(NgProgressComponent) progressBar!: NgProgressComponent;
 
   constructor(
     private githubDataService: GithubDataService,
     private route: ActivatedRoute,
     private router: Router
   ) {
-    this.router.events.subscribe((event) => {
+    // this.router.events.subscribe((event) => {
+    //   if (event instanceof NavigationEnd) {
+    //     this.paginationDetails.page = 1;
+    //     this.fetchUserDetails();
+    //   }
+    // });
+  }
+
+  ngAfterViewInit() {
+    this.progressBar.color = "white";
+    this.fetchUserDetails();
+     this.router.events.subscribe((event) => {
       if (event instanceof NavigationEnd) {
         this.paginationDetails.page = 1;
         this.fetchUserDetails();
@@ -37,36 +51,42 @@ export class HomeComponent implements OnInit {
   }
 
   ngOnInit(): void {
-    this.fetchUserDetails();
+    // this.fetchUserDetails();
   }
 
-  fetchUserDetails() {
+  async fetchUserDetails() {
     this.route.params.subscribe((params) => {
       if (params['username']) {
         this.username = params['username'];
       }
     });
 
-    this.githubDataService
+    this.progressBar.start();
+
+    await this.githubDataService
       .getUserDetails(this.username)
       .subscribe((details: User) => {
         this.userDetails = details;
         this.generatePagination();
       });
 
-    this.fetchUserRepos();
+    await this.fetchUserRepos();
   }
 
   fetchUserRepos(
     page: Number = this.paginationDetails.page,
     loadMore: Boolean = false
   ) {
-    this.githubDataService
+    return this.githubDataService
       .getUserRepositories(this.username, page)
       .subscribe((repos: Repository[]) => {
-        this.userRepositories = loadMore ? [...this.userRepositories, ...repos] : repos
+        this.userRepositories = loadMore
+          ? [...this.userRepositories, ...repos]
+          : repos;
 
         this.paginationDetails.page = page;
+
+        this.progressBar.complete();
       });
   }
 
