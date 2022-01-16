@@ -39,6 +39,7 @@ export class RepositoriesSectionComponent implements OnInit {
 
   showLoadMore() {
     return (
+      !this.loading &&
       this.paginationDetails &&
       this.paginationDetails.page != this.paginationDetails.pageCount
     );
