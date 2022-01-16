@@ -23,10 +23,11 @@ export class GithubDataService {
       .pipe(retry(2), catchError(this.handleError));
   }
 
-  getUserRepositories(username: String): Observable<Repository[]> {
-    const params = {
+  getUserRepositories(username: String, page: Number = 1): Observable<Repository[]> {
+    const params : {} = {
       sort: 'created',
       direction: 'desc',
+      page,
     };
 
     return this.http

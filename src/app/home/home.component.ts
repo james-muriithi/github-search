@@ -1,10 +1,7 @@
 import { Component, OnInit } from '@angular/core';
-import {
-  ActivatedRoute,
-  NavigationEnd,
-  Router,
-} from '@angular/router';
+import { ActivatedRoute, NavigationEnd, Router } from '@angular/router';
 import { GithubDataService } from '../services/github-data.service';
+import { Pagination } from '../shared/pagination';
 import { Repository } from '../shared/repository.model';
 import { User } from '../shared/user.model';
 
@@ -18,6 +15,12 @@ export class HomeComponent implements OnInit {
 
   userRepositories!: Repository[];
 
+  paginationDetails: Pagination = {
+    page: 1,
+    pageCount: 1,
+    perPageRepos: 30,
+  };
+
   username: String = 'james-muriithi';
 
   constructor(
@@ -27,6 +30,7 @@ export class HomeComponent implements OnInit {
   ) {
     this.router.events.subscribe((event) => {
       if (event instanceof NavigationEnd) {
+        this.paginationDetails.page;
         this.fetchUserDetails();
       }
     });
@@ -47,13 +51,37 @@ export class HomeComponent implements OnInit {
       .getUserDetails(this.username)
       .subscribe((details: User) => {
         this.userDetails = details;
+        this.generatePagination();
       });
 
+    this.fetchUserRepos();
+  }
 
+  fetchUserRepos(
+    page: Number = this.paginationDetails.page,
+    loadMore: Boolean = false
+  ) {
     this.githubDataService
-      .getUserRepositories(this.username)
-      .subscribe((repos) => {
-        this.userRepositories = repos;
+      .getUserRepositories(this.username, page)
+      .subscribe((repos: Repository[]) => {
+        if (loadMore) {
+          this.userRepositories.push(...repos);
+        } else {
+          this.userRepositories = repos;
+        }
+
+        this.paginationDetails.page = page;
       });
+  }
+
+  loadMoreRepos() {
+    this.fetchUserRepos(+this.paginationDetails.page + 1, true);
+  }
+
+  generatePagination() {
+    const userPublicRepos: Number = this.userDetails.public_repos;
+    this.paginationDetails.pageCount = Math.ceil(
+      +userPublicRepos / +this.paginationDetails.perPageRepos
+    );
   }
 }

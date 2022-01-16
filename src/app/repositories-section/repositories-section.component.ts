@@ -1,4 +1,5 @@
-import { Component, OnInit, Input } from '@angular/core';
+import { Component, OnInit, Input, Output, EventEmitter } from '@angular/core';
+import { Pagination } from '../shared/pagination';
 import { Repository } from '../shared/repository.model';
 
 @Component({
@@ -9,8 +10,19 @@ import { Repository } from '../shared/repository.model';
 export class RepositoriesSectionComponent implements OnInit {
   @Input() title: String = 'My Repositories';
   @Input() userRepositories!: Repository[];
+  @Input() paginationDetails!: Pagination;
+
+  @Output() loadMoreReposEvent:EventEmitter<any> = new EventEmitter();
 
   constructor() {}
 
   ngOnInit(): void {}
+
+  loadMoreRepos(){
+    this.loadMoreReposEvent.emit();
+  }
+
+  showLoadMore(){
+    return this.paginationDetails && this.paginationDetails.page != this.paginationDetails.pageCount;
+  }
 }

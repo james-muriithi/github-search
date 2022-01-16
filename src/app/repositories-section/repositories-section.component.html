@@ -7,8 +7,8 @@
                     <app-repository-card [repository]="repository"></app-repository-card>
                 </div>
             </div>
-            <div class="text-center mt-4" *ngIf="userRepositories && userRepositories.length > 0">
-                <button class="btn btn-outline-primary load-more px-4 py-2">
+            <div class="text-center mt-4" *ngIf="showLoadMore()">
+                <button class="btn btn-outline-primary load-more px-4 py-2" (click)="loadMoreRepos()">
                     Load More
                 </button>
             </div>
