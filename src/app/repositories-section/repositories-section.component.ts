@@ -12,17 +12,31 @@ export class RepositoriesSectionComponent implements OnInit {
   @Input() userRepositories!: Repository[];
   @Input() paginationDetails!: Pagination;
 
-  @Output() loadMoreReposEvent:EventEmitter<any> = new EventEmitter();
+  @Output() loadMoreReposEvent: EventEmitter<any> = new EventEmitter();
+
+  mostPopularRepo!: Repository;
 
   constructor() {}
 
-  ngOnInit(): void {}
+  ngOnInit(): void {
+      
+  }
+  ngOnChanges(){
+    if (this.userRepositories?.length > 0) {
+      this.mostPopularRepo = this.userRepositories.reduce((max, repo) =>
+        max.stargazers_count >= repo.stargazers_count ? max : repo
+      );
+    }
+  }
 
-  loadMoreRepos(){
+  loadMoreRepos() {
     this.loadMoreReposEvent.emit();
   }
 
-  showLoadMore(){
-    return this.paginationDetails && this.paginationDetails.page != this.paginationDetails.pageCount;
+  showLoadMore() {
+    return (
+      this.paginationDetails &&
+      this.paginationDetails.page != this.paginationDetails.pageCount
+    );
   }
 }

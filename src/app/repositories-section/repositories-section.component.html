@@ -1,16 +1,18 @@
 <section id="user-repos" class="py-5 px-xxl-5 px-lg-3">
     <div class="container-fluid">
-        <h2 class="section-title text-center text-secondary fw-bold">{{title}}</h2>
+        <h2 class="section-title text-center text-secondary fw-bold">
+            {{ title }}
+        </h2>
         <div class="repos-container mt-5">
             <div class="row justify-content-md-center">
                 <div class="col-md-5 col-lg-4 col-xl-3 col-sm-6 mb-4" *ngFor="let repository of userRepositories">
-                    <app-repository-card [repository]="repository"></app-repository-card>
+                    <app-repository-card [repository]="repository" [appPopular]="mostPopularRepo && repository.name == mostPopularRepo.name"></app-repository-card>
                 </div>
             </div>
             <div class="text-center mt-4" *ngIf="showLoadMore()">
                 <button class="btn btn-outline-primary load-more px-4 py-2" (click)="loadMoreRepos()">
-                    Load More
-                </button>
+          Load More
+        </button>
             </div>
         </div>
     </div>

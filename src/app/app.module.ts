@@ -13,6 +13,7 @@ import { FooterComponent } from './footer/footer.component';
 import { FormsModule } from '@angular/forms';
 import { HttpClientModule } from '@angular/common/http';
 import { TimeAgoPipe } from './time-ago.pipe';
+import { PopularDirective } from './directives/popular.directive';
 
 @NgModule({
   declarations: [
@@ -24,7 +25,8 @@ import { TimeAgoPipe } from './time-ago.pipe';
     RepositoriesSectionComponent,
     RepositoryCardComponent,
     FooterComponent,
-    TimeAgoPipe
+    TimeAgoPipe,
+    PopularDirective
   ],
   imports: [
     BrowserModule,

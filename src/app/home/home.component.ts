@@ -64,11 +64,7 @@ export class HomeComponent implements OnInit {
     this.githubDataService
       .getUserRepositories(this.username, page)
       .subscribe((repos: Repository[]) => {
-        if (loadMore) {
-          this.userRepositories.push(...repos);
-        } else {
-          this.userRepositories = repos;
-        }
+        this.userRepositories = loadMore ? [...this.userRepositories, ...repos] : repos
 
         this.paginationDetails.page = page;
       });
