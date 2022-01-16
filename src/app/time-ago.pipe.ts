@@ -13,7 +13,7 @@ export class TimeAgoPipe implements PipeTransform {
         return 'Just now';
       const intervals: any = {
         y: 31536000,
-        m: 2592000,
+        mon: 2592000,
         w: 604800,
         d: 86400,
         h: 3600,
