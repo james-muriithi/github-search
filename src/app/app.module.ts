@@ -12,6 +12,7 @@ import { RepositoryCardComponent } from './repository-card/repository-card.compo
 import { FooterComponent } from './footer/footer.component';
 import { FormsModule } from '@angular/forms';
 import { HttpClientModule } from '@angular/common/http';
+import { TimeAgoPipe } from './time-ago.pipe';
 
 @NgModule({
   declarations: [
@@ -22,7 +23,8 @@ import { HttpClientModule } from '@angular/common/http';
     SearchBarComponent,
     RepositoriesSectionComponent,
     RepositoryCardComponent,
-    FooterComponent
+    FooterComponent,
+    TimeAgoPipe
   ],
   imports: [
     BrowserModule,
