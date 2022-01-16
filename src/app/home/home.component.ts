@@ -30,7 +30,7 @@ export class HomeComponent implements OnInit {
   ) {
     this.router.events.subscribe((event) => {
       if (event instanceof NavigationEnd) {
-        this.paginationDetails.page;
+        this.paginationDetails.page = 1;
         this.fetchUserDetails();
       }
     });

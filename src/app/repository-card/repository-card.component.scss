@@ -1,6 +1,13 @@
 .repo-card {
     border-radius: 6px;
+    box-sizing: border-box;
     a {
         text-decoration: none;
+    }
+    .h-90 {
+        height: 90%;
+    }
+    .bottom-10 {
+        bottom: calc(-50% + 40px);
     }
 }
