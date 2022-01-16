@@ -1,0 +1,19 @@
+@import "variables";
+h1 {
+    font-size: 65px;
+}
+
+.mt-50 {
+    position: relative;
+    top: 0;
+    bottom: 0;
+    height: calc(100vh - 110px);
+    display: flex;
+    align-items: center;
+}
+
+.btn {
+    color: $white;
+    padding-top: 9px;
+    padding-bottom: 9px;
+}

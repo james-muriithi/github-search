@@ -8,7 +8,7 @@ import { Repository } from '../shared/repository.model';
   styleUrls: ['./repositories-section.component.scss'],
 })
 export class RepositoriesSectionComponent implements OnInit {
-  @Input() title: String = 'My Repositories';
+  @Input() title: String = 'Repositories';
   @Input() userRepositories!: Repository[];
   @Input() paginationDetails!: Pagination;
 

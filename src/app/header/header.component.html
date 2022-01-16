@@ -36,7 +36,7 @@
     </div>
     <div class="position-relative avtr w-100">
         <div class="user-avatar bg-primary rounded-circle d-flex">
-            <img [src]="userDetails?.avatar_url" [alt]="userDetails?.name || ''" class="img-fluid rounded-circle m-auto" />
+            <img *ngIf="userDetails?.avatar_url" [src]="userDetails?.avatar_url" [alt]="userDetails?.name || ''" class="img-fluid rounded-circle m-auto" />
         </div>
     </div>
 </header>

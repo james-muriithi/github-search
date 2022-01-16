@@ -15,6 +15,7 @@ import { HttpClientModule } from '@angular/common/http';
 import { TimeAgoPipe } from './time-ago.pipe';
 import { PopularDirective } from './directives/popular.directive';
 import { NgProgressModule } from 'ngx-progressbar';
+import { NotFoundComponent } from './not-found/not-found.component';
 
 @NgModule({
   declarations: [
@@ -28,6 +29,7 @@ import { NgProgressModule } from 'ngx-progressbar';
     FooterComponent,
     TimeAgoPipe,
     PopularDirective,
+    NotFoundComponent,
   ],
   imports: [
     BrowserModule,

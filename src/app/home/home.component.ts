@@ -22,7 +22,7 @@ export class HomeComponent implements OnInit {
     perPageRepos: 30,
   };
 
-  username: String = 'james-muriithi'
+  username: String = 'james-muriithi';
 
   @ViewChild(NgProgressComponent) progressBar!: NgProgressComponent;
 
@@ -30,19 +30,12 @@ export class HomeComponent implements OnInit {
     private githubDataService: GithubDataService,
     private route: ActivatedRoute,
     private router: Router
-  ) {
-    // this.router.events.subscribe((event) => {
-    //   if (event instanceof NavigationEnd) {
-    //     this.paginationDetails.page = 1;
-    //     this.fetchUserDetails();
-    //   }
-    // });
-  }
+  ) {}
 
   ngAfterViewInit() {
-    this.progressBar.color = "white";
+    this.progressBar.color = 'white';
     this.fetchUserDetails();
-     this.router.events.subscribe((event) => {
+    this.router.events.subscribe((event) => {
       if (event instanceof NavigationEnd) {
         this.paginationDetails.page = 1;
         this.fetchUserDetails();
@@ -63,12 +56,15 @@ export class HomeComponent implements OnInit {
 
     this.progressBar.start();
 
-    await this.githubDataService
-      .getUserDetails(this.username)
-      .subscribe((details: User) => {
+    await this.githubDataService.getUserDetails(this.username).subscribe({
+      next: (details: User) => {
         this.userDetails = details;
         this.generatePagination();
-      });
+      },
+      error: () => {
+        this.router.navigate(["error"])
+      },
+    });
 
     await this.fetchUserRepos();
   }
