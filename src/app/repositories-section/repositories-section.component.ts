@@ -16,12 +16,15 @@ export class RepositoriesSectionComponent implements OnInit {
 
   mostPopularRepo!: Repository;
 
+  loading: Boolean = false;
+
   constructor() {}
 
   ngOnInit(): void {
       
   }
   ngOnChanges(){
+    this.loading = false;
     if (this.userRepositories?.length > 0) {
       this.mostPopularRepo = this.userRepositories.reduce((max, repo) =>
         max.stargazers_count >= repo.stargazers_count ? max : repo
@@ -30,6 +33,7 @@ export class RepositoriesSectionComponent implements OnInit {
   }
 
   loadMoreRepos() {
+    this.loading = true;
     this.loadMoreReposEvent.emit();
   }
 

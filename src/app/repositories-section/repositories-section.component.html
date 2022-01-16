@@ -6,12 +6,17 @@
         <div class="repos-container mt-5">
             <div class="row justify-content-md-center">
                 <div class="col-md-5 col-lg-4 col-xl-3 col-sm-6 mb-4" *ngFor="let repository of userRepositories">
-                    <app-repository-card [repository]="repository" [appPopular]="mostPopularRepo && repository.name == mostPopularRepo.name"></app-repository-card>
+                    <app-repository-card [repository]="repository" [appPopular]="
+              mostPopularRepo && repository.name == mostPopularRepo.name
+            "></app-repository-card>
                 </div>
             </div>
             <div class="text-center mt-4" *ngIf="showLoadMore()">
-                <button class="btn btn-outline-primary load-more px-4 py-2" (click)="loadMoreRepos()">
-          Load More
+                <button class="btn btn-outline-primary load-more px-4 py-2" (click)="loadMoreRepos()" [disabled]="loading">
+          <span class="" *ngIf="!loading">Load More</span>
+          <div class="spinner-border mx-5" role="status" *ngIf="loading">
+            <span class="visually-hidden">Loading...</span>
+          </div>
         </button>
             </div>
         </div>
