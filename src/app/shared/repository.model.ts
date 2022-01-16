@@ -4,7 +4,7 @@ export class Repository {
     public stargazers_count: Number,
     public forks: Number,
     public description: String,
-    public url: String,
+    public html_url: String,
     public topic: [],
     public created_at: Date,
     public language?: String

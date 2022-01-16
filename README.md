@@ -1,7 +1,7 @@
 # Github Search
 Created by James on 16-01-2022
 ## Description
-An app that querys github API for users and their repositories
+An app that consumes github API to allow users to search username and user repositories.
 ## Setup Requirements
 * Git
 * Web-browser of your choice
