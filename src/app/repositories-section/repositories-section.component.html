@@ -14,7 +14,7 @@
             <div class="text-center mt-4" *ngIf="showLoadMore()">
                 <button class="btn btn-outline-primary load-more px-4 py-2" (click)="loadMoreRepos()" [disabled]="loading">
           <span class="" *ngIf="!loading">Load More</span>
-          <div class="spinner-border mx-5" role="status" *ngIf="loading">
+          <div class="spinner-border spinner-border-sm mx-5" role="status" *ngIf="loading">
             <span class="visually-hidden">Loading...</span>
           </div>
         </button>
